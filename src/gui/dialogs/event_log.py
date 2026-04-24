@@ -23,10 +23,10 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
 )
 
-from ...core import events
-from ...core.event_codes import LEVEL_ERROR, LEVEL_INFO, LEVEL_WARNING
-from ..i18n.strings import S
-from ..widgets.hint_label import attach_hint
+from src.core import events
+from src.core.event_codes import LEVEL_ERROR, LEVEL_INFO, LEVEL_WARNING
+from src.gui.i18n.strings import S
+from src.gui.widgets.hint_label import attach_hint
 
 
 _LEVEL_ICON = {

@@ -14,8 +14,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Iterable
 
-from . import event_codes
-from .paths import logs_dir
+from src.core import event_codes
+from src.core.paths import logs_dir
 
 
 EVENTS_FILE_NAME = "events.ndjson"

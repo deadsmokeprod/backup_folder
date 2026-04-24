@@ -4,7 +4,7 @@ from __future__ import annotations
 import re
 from datetime import datetime
 
-from .models import DEFAULT_NAME_TEMPLATE
+from src.core.models import DEFAULT_NAME_TEMPLATE
 
 
 _INVALID_FS_CHARS = re.compile(r'[<>:"/\\|?*\x00-\x1f]')

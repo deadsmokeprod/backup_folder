@@ -4,7 +4,7 @@ from __future__ import annotations
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QHBoxLayout, QLabel, QWidget
 
-from ..i18n import hints
+from src.gui.i18n import hints
 
 
 class HintIcon(QLabel):

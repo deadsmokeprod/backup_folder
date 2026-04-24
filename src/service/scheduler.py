@@ -5,10 +5,10 @@ import threading
 from datetime import datetime, time as dtime
 from typing import Optional
 
-from ..core import config as cfg
-from ..core import db, events
-from ..core.models import BackupJob, GlobalSettings
-from . import pruner, runner
+from src.core import config as cfg
+from src.core import db, events
+from src.core.models import BackupJob, GlobalSettings
+from src.service import pruner, runner
 
 
 def _parse_hhmm(value: str, default: dtime) -> dtime:

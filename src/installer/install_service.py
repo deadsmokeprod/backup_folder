@@ -15,7 +15,7 @@ import sys
 try:
     import win32serviceutil
 
-    from ..service.service_main import BackupBotsService
+    from src.service.service_main import BackupBotsService
 except ImportError as exc:  # pragma: no cover
     print("pywin32 не установлен:", exc)
     sys.exit(1)

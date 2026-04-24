@@ -6,8 +6,8 @@ from pathlib import Path
 
 import psutil
 
-from ..core import db, events
-from ..core.models import GlobalSettings
+from src.core import db, events
+from src.core.models import GlobalSettings
 
 
 def _disk_percent(path: str) -> float | None:

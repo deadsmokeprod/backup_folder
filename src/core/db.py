@@ -7,8 +7,8 @@ from contextlib import contextmanager
 from datetime import datetime
 from typing import Iterator, Optional
 
-from .models import JobStats, Snapshot
-from .paths import db_path
+from src.core.models import JobStats, Snapshot
+from src.core.paths import db_path
 
 
 _DDL = """

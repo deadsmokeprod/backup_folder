@@ -6,7 +6,7 @@ from pathlib import Path
 import psutil
 from PySide6.QtWidgets import QLabel, QProgressBar, QVBoxLayout, QWidget
 
-from ..i18n.strings import S
+from src.gui.i18n.strings import S
 
 
 def _human_size(num: float) -> str:

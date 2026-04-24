@@ -19,15 +19,15 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from ..core import config as cfg
-from ..core import events, ipc
-from .dialogs.add_backup import AddBackupDialog
-from .dialogs.backup_list import BackupListDialog
-from .dialogs.event_log import EventLogDialog
-from .dialogs.global_settings import GlobalSettingsDialog
-from .i18n.strings import S
-from .widgets.disk_bar import DiskBar
-from .widgets.hint_label import attach_hint
+from src.core import config as cfg
+from src.core import events, ipc
+from src.gui.dialogs.add_backup import AddBackupDialog
+from src.gui.dialogs.backup_list import BackupListDialog
+from src.gui.dialogs.event_log import EventLogDialog
+from src.gui.dialogs.global_settings import GlobalSettingsDialog
+from src.gui.i18n.strings import S
+from src.gui.widgets.disk_bar import DiskBar
+from src.gui.widgets.hint_label import attach_hint
 
 
 class MainWindow(QMainWindow):

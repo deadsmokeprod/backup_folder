@@ -18,11 +18,11 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
 )
 
-from ...core import config as cfg
-from ...core.models import BackupJob, GlobalSettings
-from ..i18n.strings import S
-from ..widgets.hint_label import LabelWithHint, attach_hint
-from ..widgets.schedule_form import ScheduleForm
+from src.core import config as cfg
+from src.core.models import BackupJob, GlobalSettings
+from src.gui.i18n.strings import S
+from src.gui.widgets.hint_label import LabelWithHint, attach_hint
+from src.gui.widgets.schedule_form import ScheduleForm
 
 
 class AddBackupDialog(QDialog):

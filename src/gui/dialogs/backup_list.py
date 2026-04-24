@@ -16,11 +16,11 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
 )
 
-from ...core import config as cfg
-from ...core import db, ipc
-from ...core.models import BackupJob
-from ..i18n.strings import S
-from ..widgets.hint_label import attach_hint
+from src.core import config as cfg
+from src.core import db, ipc
+from src.core.models import BackupJob
+from src.gui.i18n.strings import S
+from src.gui.widgets.hint_label import attach_hint
 
 
 def format_human_size(num: float) -> str:

@@ -8,12 +8,12 @@ from logging.handlers import RotatingFileHandler
 from PySide6.QtCore import QLocale
 from PySide6.QtWidgets import QApplication
 
-from ..core import db, events
-from ..core.paths import gui_log_path
-from .main_window import MainWindow
-from .theme.fonts import register_bundled_fonts
-from .theme.palette import apply_dark_anime_palette
-from .theme.qss_loader import load_qss
+from src.core import db, events
+from src.core.paths import gui_log_path
+from src.gui.main_window import MainWindow
+from src.gui.theme.fonts import register_bundled_fonts
+from src.gui.theme.palette import apply_dark_anime_palette
+from src.gui.theme.qss_loader import load_qss
 
 
 def _configure_logging() -> None:

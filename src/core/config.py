@@ -8,8 +8,8 @@ import time
 from pathlib import Path
 from typing import Optional
 
-from .models import AppConfig
-from .paths import app_data_dir, config_path
+from src.core.models import AppConfig
+from src.core.paths import app_data_dir, config_path
 
 
 def _lock_path() -> Path:

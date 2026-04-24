@@ -18,11 +18,11 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
 )
 
-from ...core import db
-from ...core.models import BackupJob
-from ..i18n.strings import S
-from ..widgets.hint_label import attach_hint
-from .backup_list import format_human_size
+from src.core import db
+from src.core.models import BackupJob
+from src.gui.i18n.strings import S
+from src.gui.widgets.hint_label import attach_hint
+from src.gui.dialogs.backup_list import format_human_size
 
 
 class BackupDetailDialog(QDialog):

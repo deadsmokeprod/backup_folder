@@ -14,9 +14,9 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from ...core.models import ALL_WEEKDAYS, DEFAULT_NAME_TEMPLATE, GlobalSettings
-from ..i18n.strings import S
-from .hint_label import LabelWithHint, attach_hint
+from src.core.models import ALL_WEEKDAYS, DEFAULT_NAME_TEMPLATE, GlobalSettings
+from src.gui.i18n.strings import S
+from src.gui.widgets.hint_label import LabelWithHint, attach_hint
 
 
 class ScheduleForm(QWidget):

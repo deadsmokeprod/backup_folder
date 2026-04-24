@@ -10,7 +10,7 @@ import threading
 import time
 from typing import Any, Callable, Optional
 
-from .paths import PIPE_NAME
+from src.core.paths import PIPE_NAME
 
 
 try:

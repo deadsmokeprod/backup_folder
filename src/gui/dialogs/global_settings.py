@@ -13,11 +13,11 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
 )
 
-from ...core import config as cfg
-from ..i18n.strings import S
-from ..widgets.disk_bar import DiskBar
-from ..widgets.hint_label import LabelWithHint
-from ..widgets.schedule_form import ScheduleForm
+from src.core import config as cfg
+from src.gui.i18n.strings import S
+from src.gui.widgets.disk_bar import DiskBar
+from src.gui.widgets.hint_label import LabelWithHint
+from src.gui.widgets.schedule_form import ScheduleForm
 
 
 class GlobalSettingsDialog(QDialog):

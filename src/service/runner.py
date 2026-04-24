@@ -5,9 +5,9 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 
-from ..core import db, events, naming
-from ..core.events import human_size
-from ..core.models import BackupJob, GlobalSettings
+from src.core import db, events, naming
+from src.core.events import human_size
+from src.core.models import BackupJob, GlobalSettings
 
 
 def _calculate_size(path: Path) -> int:

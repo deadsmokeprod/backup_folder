@@ -6,9 +6,9 @@ from typing import Any
 
 import psutil
 
-from ..core import config as cfg
-from ..core import db, events, ipc
-from .scheduler import Scheduler
+from src.core import config as cfg
+from src.core import db, events, ipc
+from src.service.scheduler import Scheduler
 
 
 log = logging.getLogger("service.ipc")

@@ -6,10 +6,10 @@ import sys
 import time
 from logging.handlers import RotatingFileHandler
 
-from ..core import db, events
-from ..core.paths import service_log_path
-from .ipc_server import CommandDispatcher
-from .scheduler import Scheduler
+from src.core import db, events
+from src.core.paths import service_log_path
+from src.service.ipc_server import CommandDispatcher
+from src.service.scheduler import Scheduler
 
 
 SERVICE_NAME = "BackupBotsService"
