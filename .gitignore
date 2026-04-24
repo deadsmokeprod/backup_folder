@@ -18,4 +18,5 @@ config.lock
 !.cursor/rules/
 !.cursor/rules/**
 service_smoke.*
+.release_notes.md
 
