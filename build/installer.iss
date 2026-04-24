@@ -2,7 +2,7 @@
 ; Сборка: iscc build/installer.iss
 
 #define MyAppName "BackupBots"
-#define MyAppVersion "0.1.0"
+#define MyAppVersion "0.1.1"
 #define MyAppPublisher "deadsmokeprod"
 #define MyAppURL "https://github.com/deadsmokeprod/backup_folder"
 #define MyAppGuiExe "BackupApp.exe"

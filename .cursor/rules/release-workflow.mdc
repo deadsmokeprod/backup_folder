@@ -1,0 +1,42 @@
+---
+description: Release workflow — bump version, rebuild installer, push to GitHub on every fix
+alwaysApply: true
+---
+
+# Release workflow для BackupBots
+
+После каждого содержательного изменения (fix / feat / refactor) в `src/` или `build/`:
+
+## 1. Поднять версию синхронно
+
+SemVer: `fix` → patch (0.1.0 → 0.1.1), `feat` → minor, ломающее изменение → major.
+
+- `src/__init__.py` — `__version__ = "X.Y.Z"`
+- `build/installer.iss` — `#define MyAppVersion "X.Y.Z"`
+
+Обе строки должны совпадать. Проверить быстро: `rg '"0\.\d+\.\d+"' src/__init__.py build/installer.iss`.
+
+## 2. Пересобрать установщик
+
+```powershell
+powershell -ExecutionPolicy Bypass -File build\build_all.ps1
+```
+
+Скрипт сам чистит `dist\BackupApp`, `dist\BackupService`, `dist\installer` и `build\work-*`, запускает PyInstaller и Inno Setup. В конце должен появиться `dist\installer\BackupBotsSetup.exe`.
+
+## 3. Коммит и push
+
+Одним коммитом: код + bump версии + новые правила. Сообщение — в формате Conventional Commits на английском, тело может быть на русском.
+
+```powershell
+git add src build .cursor/rules
+git commit -F <msg_file>
+git push origin main
+```
+
+## Не нужно
+
+- Пропускать bump, даже для «косметических» фиксов, если они меняют бинарники.
+- Оставлять `src/__init__.py` и `build/installer.iss` с разными версиями.
+- Коммитить `dist/`, `build/work-*`, `.venv/` (они в `.gitignore`).
+- Делать `git push --force` в `main` без прямой просьбы пользователя.

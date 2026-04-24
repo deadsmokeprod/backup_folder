@@ -1,0 +1,47 @@
+---
+description: Frozen pywin32 service must support both SCM startup and CLI commands
+globs: src/service/service_main.py
+alwaysApply: false
+---
+
+# Точка входа Windows-службы
+
+`BackupService.exe` — замороженная PyInstaller-ом pywin32-служба. Её `main()` ОБЯЗАН поддерживать ДВА сценария запуска, иначе SCM не сможет поднять службу (Error 1053, "The service did not respond..."), named pipe не поднимется и GUI будет показывать «Служба не запущена».
+
+## Два сценария
+
+1. **SCM-запуск** — Windows Service Control Manager запускает exe без аргументов (`len(sys.argv) == 1`). Нужно `servicemanager.Initialize + PrepareToHostSingle + StartServiceCtrlDispatcher`.
+2. **CLI-команды** (`install`, `start`, `stop`, `remove`, `--startup auto install`) — обычный путь через `win32serviceutil.HandleCommandLine`.
+
+## Шаблон
+
+```python
+def main() -> None:
+    if len(sys.argv) > 1 and sys.argv[1] == "debug":
+        _run_debug()
+        return
+    if not HAS_SERVICE:
+        print("pywin32 не установлен. Используйте 'debug'.")
+        sys.exit(1)
+
+    if getattr(sys, "frozen", False):
+        BackupBotsService._exe_name_ = sys.executable
+        BackupBotsService._exe_args_ = None
+
+    if len(sys.argv) == 1:
+        servicemanager.Initialize()
+        servicemanager.PrepareToHostSingle(BackupBotsService)
+        servicemanager.StartServiceCtrlDispatcher()
+    else:
+        win32serviceutil.HandleCommandLine(BackupBotsService)
+```
+
+## Почему `_exe_name_ = sys.executable`
+
+Для frozen-сборки это гарантирует, что при `install` в реестр пропишется путь к `BackupService.exe`, а не к несуществующему `pythonservice.exe`, который pywin32 ставит по умолчанию.
+
+## Диагностика
+
+- `sc query BackupBotsService` → ожидаем `STATE: 4 RUNNING`.
+- `%ProgramData%\BackupBots\logs\service.log` — запись `service_started`.
+- `Event Viewer → Windows Logs → Application`, источник `BackupBotsService` — для ошибок SCM.

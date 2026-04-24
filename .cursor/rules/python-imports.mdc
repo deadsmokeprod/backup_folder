@@ -1,0 +1,35 @@
+---
+description: Absolute-only imports inside src/ to survive PyInstaller freezing
+globs: src/**/*.py
+alwaysApply: false
+---
+
+# Импорты в src/
+
+Входные скрипты `src/gui/app.py` и `src/service/service_main.py` замораживаются PyInstaller-ом и исполняются как `__main__` без родительского пакета. Относительные импорты падают с `ImportError: attempted relative import with no known parent package`.
+
+## Правило
+
+Внутри `src/` используй ТОЛЬКО абсолютные импорты через корень `src.*`.
+
+```python
+# BAD
+from ..core import db, events
+from .main_window import MainWindow
+from ...core.models import BackupJob
+
+# GOOD
+from src.core import db, events
+from src.gui.main_window import MainWindow
+from src.core.models import BackupJob
+```
+
+Dev-запуск `python -m src.gui.app` и собранный `BackupApp.exe` оба работают с абсолютными импортами.
+
+## Проверка
+
+```powershell
+rg "^from \.\.?|^import \.\.?" src
+```
+
+Совпадений быть не должно.

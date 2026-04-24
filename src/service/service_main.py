@@ -110,7 +110,17 @@ def main() -> None:
     if not HAS_SERVICE:
         print("pywin32 не установлен. Используйте 'debug' для запуска в консоли.")
         sys.exit(1)
-    win32serviceutil.HandleCommandLine(BackupBotsService)
+
+    if getattr(sys, "frozen", False):
+        BackupBotsService._exe_name_ = sys.executable
+        BackupBotsService._exe_args_ = None
+
+    if len(sys.argv) == 1:
+        servicemanager.Initialize()
+        servicemanager.PrepareToHostSingle(BackupBotsService)
+        servicemanager.StartServiceCtrlDispatcher()
+    else:
+        win32serviceutil.HandleCommandLine(BackupBotsService)
 
 
 if __name__ == "__main__":
