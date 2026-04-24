@@ -1,0 +1,5 @@
+PySide6>=6.7
+pywin32>=306
+psutil>=5.9
+pydantic>=2.6
+pyinstaller>=6.6

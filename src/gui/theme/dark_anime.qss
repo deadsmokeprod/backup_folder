@@ -1,0 +1,284 @@
+/* BackupBots — тёмная тема в аниме-стиле */
+
+* {
+    font-family: "Inter", "Segoe UI", "Manrope", "Noto Sans", sans-serif;
+    font-size: 13px;
+    color: #E6E8FF;
+}
+
+QWidget {
+    background: transparent;
+}
+
+QMainWindow, QDialog {
+    background-color: #0F1020;
+}
+
+/* --- Карточки / контейнеры --- */
+QFrame#Card {
+    background-color: #1A1B30;
+    border: 1px solid #2A2B45;
+    border-radius: 14px;
+}
+
+QLabel#H1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFE5EE;
+}
+
+QLabel#H2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #E6E8FF;
+}
+
+QLabel#Hint {
+    color: #A0A3C5;
+    font-size: 12px;
+}
+
+QLabel#HintIcon {
+    color: #FF6FA3;
+    font-weight: 700;
+    background: rgba(255, 111, 163, 0.12);
+    border: 1px solid rgba(255, 111, 163, 0.35);
+    border-radius: 9px;
+    min-width: 18px;
+    max-width: 18px;
+    min-height: 18px;
+    max-height: 18px;
+    padding: 0;
+    qproperty-alignment: AlignCenter;
+}
+
+QLabel#HintIcon:hover {
+    background: rgba(255, 111, 163, 0.25);
+}
+
+/* --- Кнопки --- */
+QPushButton {
+    background-color: #22243F;
+    border: 1px solid #2A2B45;
+    border-radius: 10px;
+    padding: 8px 16px;
+    color: #E6E8FF;
+}
+
+QPushButton:hover {
+    border-color: #FF6FA3;
+    color: #FFE5EE;
+}
+
+QPushButton:pressed {
+    background-color: #1A1B30;
+}
+
+QPushButton:disabled {
+    color: #5A5D7A;
+    border-color: #2A2B45;
+}
+
+QPushButton#Primary {
+    background-color: #FF6FA3;
+    border: 1px solid #FF6FA3;
+    color: #1A0B13;
+    font-weight: 700;
+}
+
+QPushButton#Primary:hover {
+    background-color: #FF8AB6;
+    border-color: #FF8AB6;
+}
+
+QPushButton#Primary:pressed {
+    background-color: #E55E92;
+}
+
+QPushButton#Secondary {
+    background-color: #22243F;
+    border: 1px solid #8AB4FF;
+    color: #C8D9FF;
+}
+
+QPushButton#Secondary:hover {
+    background-color: #2B2E55;
+}
+
+QPushButton#Danger {
+    border-color: #FF8AA0;
+    color: #FF8AA0;
+}
+
+QPushButton#Danger:hover {
+    background-color: rgba(255, 138, 160, 0.15);
+}
+
+/* --- Поля ввода --- */
+QLineEdit, QSpinBox, QTimeEdit, QComboBox, QPlainTextEdit, QTextEdit {
+    background-color: #22243F;
+    border: 1px solid #2A2B45;
+    border-radius: 8px;
+    padding: 6px 10px;
+    selection-background-color: #FF6FA3;
+    selection-color: #1A0B13;
+}
+
+QLineEdit:focus, QSpinBox:focus, QTimeEdit:focus, QComboBox:focus,
+QPlainTextEdit:focus, QTextEdit:focus {
+    border-color: #FF6FA3;
+}
+
+QSpinBox::up-button, QSpinBox::down-button,
+QTimeEdit::up-button, QTimeEdit::down-button {
+    width: 16px;
+    background: transparent;
+    border: none;
+}
+
+/* --- Чекбоксы --- */
+QCheckBox {
+    spacing: 8px;
+    color: #E6E8FF;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    border: 1px solid #2A2B45;
+    background-color: #22243F;
+}
+
+QCheckBox::indicator:hover {
+    border-color: #FF6FA3;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #FF6FA3;
+    border-color: #FF6FA3;
+    image: none;
+}
+
+/* --- Таблица --- */
+QTableView, QTableWidget {
+    background-color: #1A1B30;
+    alternate-background-color: #1F2038;
+    gridline-color: #2A2B45;
+    border: 1px solid #2A2B45;
+    border-radius: 10px;
+    selection-background-color: rgba(255, 111, 163, 0.25);
+    selection-color: #FFE5EE;
+}
+
+QHeaderView::section {
+    background-color: #22243F;
+    color: #C8CAEB;
+    padding: 6px 10px;
+    border: none;
+    border-right: 1px solid #2A2B45;
+    border-bottom: 1px solid #2A2B45;
+    font-weight: 600;
+}
+
+QTableView::item {
+    padding: 6px;
+}
+
+/* --- Прокрутка --- */
+QScrollBar:vertical, QScrollBar:horizontal {
+    background: transparent;
+    border: none;
+    width: 10px;
+    height: 10px;
+    margin: 0;
+}
+
+QScrollBar::handle {
+    background: #2A2B45;
+    border-radius: 5px;
+    min-height: 24px;
+    min-width: 24px;
+}
+
+QScrollBar::handle:hover {
+    background: #FF6FA3;
+}
+
+QScrollBar::add-line, QScrollBar::sub-line,
+QScrollBar::add-page, QScrollBar::sub-page {
+    background: transparent;
+    border: none;
+}
+
+/* --- Tooltips --- */
+QToolTip {
+    background-color: #1A1B30;
+    color: #E6E8FF;
+    border: 1px solid #FF6FA3;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+/* --- Индикатор занятости диска --- */
+QProgressBar {
+    background-color: #22243F;
+    border: 1px solid #2A2B45;
+    border-radius: 8px;
+    text-align: center;
+    color: #E6E8FF;
+    font-weight: 600;
+    min-height: 18px;
+}
+
+QProgressBar::chunk {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:1, y2:0,
+        stop:0 #8AB4FF, stop:1 #FF6FA3
+    );
+    border-radius: 7px;
+}
+
+/* --- Плашка-маркер статуса службы --- */
+QLabel#StatusOk {
+    color: #1A2E23;
+    background: #7CE0B3;
+    border-radius: 10px;
+    padding: 3px 10px;
+    font-weight: 700;
+}
+
+QLabel#StatusBad {
+    color: #3A1620;
+    background: #FF8AA0;
+    border-radius: 10px;
+    padding: 3px 10px;
+    font-weight: 700;
+}
+
+QLabel#StatusUnknown {
+    color: #2A2B45;
+    background: #A0A3C5;
+    border-radius: 10px;
+    padding: 3px 10px;
+    font-weight: 700;
+}
+
+/* --- Меню --- */
+QMenu {
+    background-color: #1A1B30;
+    border: 1px solid #2A2B45;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+QMenu::item {
+    padding: 6px 20px;
+    border-radius: 6px;
+}
+
+QMenu::item:selected {
+    background-color: rgba(255, 111, 163, 0.25);
+    color: #FFE5EE;
+}
